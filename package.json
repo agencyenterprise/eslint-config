@@ -1,6 +1,6 @@
 {
   "name": "@ae-studio/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ESLint config for TS and JS following the AE Studio code style.",
   "main": "index.js",
   "exports": {
