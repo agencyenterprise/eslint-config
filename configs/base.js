@@ -1,15 +1,18 @@
+/** @type import(eslint).Linter.Config */
 module.exports = {
   env: {
     browser: true,
     node: true,
     amd: true,
+    es2022: true,
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: { jsx: true },
   },
   extends: ['eslint:recommended'],
-  plugins: ['import', 'unused-imports'],
+  plugins: ['import', 'unused-imports', 'simple-import-sort'],
   rules: {
     // Format
     'max-len': [
@@ -31,22 +34,30 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'indent': ['error', 2, { SwitchCase: 1, offsetTernaryExpressions: true }],
     'linebreak-style': [1, 'unix'],
+    'multiline-ternary': ['error', 'always-multiline'],
+    'react/no-unescaped-entities': 'off',
 
     // Import
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': ['error', { 'prefer-inline': false }],
-    'no-duplicate-imports': ['error', { includeExports: true }],
     'unused-imports/no-unused-imports': 'error',
-    'import/order': [
+    'import/order': 'off',
+    'simple-import-sort/imports': [
       'error',
       {
-        'groups': ['builtin', 'external', ['internal', 'parent', 'sibling', 'index'], 'type'],
-        'alphabetize': { order: 'asc', orderImportKind: 'desc' },
-        'newlines-between': 'always',
-        'distinctGroup': false,
-        'pathGroupsExcludedImportTypes': ['builtin'],
+        groups: [
+          ['^dotenv', '^@config'],
+          ['^\\u0000'],
+          ['^node:'],
+          ['^react', '^next', '^@?\\w'],
+          ['^'],
+          ['^\\.'],
+          ['^.+\\u0000$'],
+          ['^.+\\.s?css$'],
+        ],
       },
     ],
+    'simple-import-sort/exports': 'error',
   },
 };

@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['./base', 'plugin:prettier/recommended'],
+  extends: ['plugin:prettier/recommended'],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': [
@@ -15,11 +15,15 @@ module.exports = {
         trailingComma: 'all',
         useTabs: false,
         arrowParens: 'always',
-        importOrder: ['<BUILT_IN_MODULES>', '', '<THIRD_PARTY_MODULES>', '', '^[.]', '', '<TYPES>', '<TYPES>^[.]'],
-        importOrderSeparation: true,
-        importOrderSortSpecifiers: true,
-        plugins: ['prettier-plugin-tailwindcss', '@ianvs/prettier-plugin-sort-imports'],
+        plugins: ['prettier-plugin-tailwindcss'],
       },
     ],
+    'tailwindcss/classnames-order': 'off',
+    'tailwindcss/enforces-negative-arbitrary-values': 'off',
+    'tailwindcss/enforces-shorthand': 'off',
+    'tailwindcss/migration-from-tailwind-2': 'off',
+    'tailwindcss/no-arbitrary-value': 'off',
+    'tailwindcss/no-custom-classname': 'off',
+    'tailwindcss/no-contradicting-classname': 'off',
   },
 };
