@@ -1,6 +1,6 @@
 {
   "name": "@ae-studio/eslint-config",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "ESLint config for TS and JS following the AE Studio code style.",
   "main": "index.js",
   "exports": {
@@ -8,7 +8,8 @@
     "./recommended": "./configs/base.js",
     "./typescript": "./configs/typescript.js",
     "./tailwind": "./configs/tailwind.js",
-    "./prettier": "./configs/prettier.js"
+    "./prettier": "./configs/prettier.js",
+    "./prettier-no-semi": "./configs/prettier-no-semi.js"
   },
   "repository": {
     "type": "git",
