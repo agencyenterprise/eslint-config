@@ -47,10 +47,9 @@ module.exports = {
       'error',
       {
         groups: [
-          ['^dotenv', '^@config'],
-          ['^\\u0000'],
+          ['^dotenv', '^\\u0000'],
           ['^node:'],
-          ['^react', '^next', '^@?\\w'],
+          ['^react', '^next', '^@config', '^@?\\w'],
           ['^'],
           ['^\\.'],
           ['^.+\\u0000$'],
