@@ -60,7 +60,7 @@ module.exports = {
     'simple-import-sort/exports': 'error',
 
     // Vars
-    "unused-imports/no-unused-vars": [
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
         "vars": "all",
