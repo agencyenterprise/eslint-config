@@ -4,7 +4,8 @@
   "description": "ESLint config for TS and JS following the AE Studio code style.",
   "main": "index.js",
   "exports": {
-    "./node": "./configs/node.js"
+    "./node": "./configs/node.js",
+    "./react": "./configs/react.js"
   },
   "repository": {
     "type": "git",
