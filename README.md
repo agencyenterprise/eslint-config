@@ -56,8 +56,8 @@ Inside your `.eslintrc.json` file, add the following configuration based on your
 ```json
 {
   "extends": [
-    "@ae-studio/eslint-config/react",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "@ae-studio/eslint-config/react"
   ]
 }
 ```
@@ -67,9 +67,9 @@ Inside your `.eslintrc.json` file, add the following configuration based on your
 ```json
 {
   "extends": [
+    "next/core-web-vitals",
     "@ae-studio/eslint-config/react",
-    "@ae-studio/eslint-config/tailwind",
-    "next/core-web-vitals"
+    "@ae-studio/eslint-config/tailwind"
   ]
 }
 ```
