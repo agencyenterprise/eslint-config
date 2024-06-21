@@ -4,5 +4,5 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['./base.js'],
+  extends: ['./base.cjs'],
 };

@@ -10,7 +10,7 @@ module.exports = {
       jsx: true,
     },
   },
-  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', './base.js'],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', './base.cjs'],
   plugins: ['react', 'jsx-a11y'],
   rules: {
     'react/self-closing-comp': 'error',

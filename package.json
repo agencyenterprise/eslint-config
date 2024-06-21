@@ -4,8 +4,9 @@
   "description": "ESLint config for TS and JS following the AE Studio code style.",
   "main": "index.js",
   "exports": {
-    "./node": "./configs/node.js",
-    "./react": "./configs/react.js"
+    "./node": "./configs/node.cjs",
+    "./react": "./configs/react.cjs",
+    "./tailwind": "./configs/tailwind.cjs"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "prettier": "^3.3.2"
   }
 }
