@@ -16,7 +16,7 @@
 ## Install
 
 ```sh
-npm i -D eslint @ae-studio/eslint-config
+npm i -D eslint@8 @ae-studio/eslint-config
 ```
 
 ## Setup
