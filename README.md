@@ -12,6 +12,7 @@
 - [React Hooks plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 - [JSX A11y plugin](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
 - [Simple Import Sort plugin](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
+- [TailwindCSS plugin](https://www.npmjs.com/package/eslint-plugin-tailwindcss)
 
 ## Install
 
@@ -39,11 +40,37 @@ Inside your `.eslintrc.json` file, add the following configuration based on your
 }
 ```
 
+### React + Tailwind
+
+```json
+{
+  "extends": [
+    "@ae-studio/eslint-config/react",
+    "@ae-studio/eslint-config/tailwind"
+  ]
+}
+```
+
 ### Next.js
 
 ```json
 {
-  "extends": ["@ae-studio/eslint-config/react", "next/core-web-vitals"]
+  "extends": [
+    "@ae-studio/eslint-config/react",
+    "next/core-web-vitals"
+  ]
+}
+```
+
+### Next.js + Tailwind
+
+```json
+{
+  "extends": [
+    "@ae-studio/eslint-config/react",
+    "@ae-studio/eslint-config/tailwind",
+    "next/core-web-vitals"
+  ]
 }
 ```
 
