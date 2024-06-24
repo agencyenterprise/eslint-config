@@ -1,225 +1,87 @@
-# ESLint Config <small>(`@ae-studio/eslint-config`)</small>
+# AE Studio ESLint Config
 
----
+[![npm version](https://img.shields.io/npm/v/%40ae-studio%2Feslint-config)](https://www.npmjs.com/package/@ae-studio/eslint-config)
+[![npm license](https://img.shields.io/npm/l/%40ae-studio%2Feslint-config)](./LICENSE)
 
-## Installation
+## What's included?
 
-**Using NPM:**
-```bash
-npm i -D @ae-studio/eslint-config
+- [Standard config](https://www.npmjs.com/package/eslint-config-standard)
+- [Prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
+- [Typescript plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
+- [React plugin](https://www.npmjs.com/package/eslint-plugin-react)
+- [React Hooks plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [JSX A11y plugin](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [Simple Import Sort plugin](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
+- [TailwindCSS plugin](https://www.npmjs.com/package/eslint-plugin-tailwindcss)
+
+## Install
+
+```sh
+npm i -D eslint@8 @ae-studio/eslint-config
 ```
 
-**Using Yarn:**
-```bash
-yarn add -D @ae-studio/eslint-config
+### Next.js
+
+If you're setting up a **Next.js project**, you also need to install the [eslint-config-next](https://www.npmjs.com/package/eslint-config-next) package.
+
+```sh
+npm i -D eslint@8 @ae-studio/eslint-config eslint-config-next
 ```
 
-## Usage
+## Setup
 
-By default, this config will lint for ES6+. To use it, add the following to your `.eslintrc.*` file:
+Inside your `.eslintrc.json` file, add the following configuration based on your project type:
+
+### Node.js
 
 ```json
 {
-  "extends": "@ae-studio/eslint-config"
+  "extends": "@ae-studio/eslint-config/node"
 }
 ```
 
-To add typescript support, add the following to your `.eslintrc.*` file instead:
+### React
 
 ```json
 {
-  "extends": "@ae-studio/eslint-config/typescript"
+  "extends": "@ae-studio/eslint-config/react"
 }
 ```
 
-<small>**Note:** You will need to install `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` as well.</small>
-
-```bash
-yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
-```
-
-## Format Rules
-
-This config includes the following rules for formatting:
-
-```js
-{
-  'max-len': [
-      'error',
-      {
-        code: 120,
-        ignoreComments: true,
-        ignoreTrailingComments: true,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-  ],
-  'semi': ['error', 'always'],
-  'quotes': ['error', 'single'],
-  'comma-dangle': ['error', 'always-multiline'],
-  'quote-props': ['error', 'consistent-as-needed'],
-  'arrow-parens': ['error', 'always'],
-  'object-curly-spacing': ['error', 'always'],
-  'indent': ['error', 2, { SwitchCase: 1, offsetTernaryExpressions: true }],
-  'linebreak-style': [1, 'unix'],
-}
-```
-
-## Prettier Support
-
-This config also includes support for [Prettier](https://prettier.io/). To use it, add the following to your `.eslintrc.*` file:
+### React + Tailwind
 
 ```json
 {
   "extends": [
-    "@ae-studio/eslint-config",
-    "@ae-studio/eslint-config/prettier"
-  ]
-}
-```
-
-And for Typescript support:
-
-```json
-{
-  "extends": [
-    "@ae-studio/eslint-config/typescript",
-    "@ae-studio/eslint-config/prettier"
-  ]
-}
-```
-
-### ❗ When you run `eslint --fix`, it will run the prettier plugin first, then the ESLint plugin, so don't use ``prettier . --write``!
-
-This means that **you don't need to set up two separate commands to run prettier and eslint**. Just run `eslint --fix` and it will do both.
-
-This also means that you should only install / use the ESLint extension in your editor, not the prettier extension. On save, the ESLint extension will run prettier first, then ESLint.
-
-When using the prettier eslint config, it is not necessary to create a ``.prettierrc`` file.
-However, if you do, the ESLint prettier config will take precedence over the ``.prettierrc`` config, so only create a ``.prettierrc`` if you want to use plugins not already included.
-
-The following rules are included in the ESLint Prettier config:
-
-<small>**Note:** The prettier plugin disables conflicting format ESLint rules from above.</small>
-
-```js
-{
-  bracketSpacing: true,
-  endOfLine: 'lf',
-  printWidth: 120,
-  semi: true,
-  singleQuote: true,
-  quoteProps: 'consistent',
-  tabWidth: 2,
-  trailingComma: 'all',
-  useTabs: false,
-  arrowParens: 'always',
-  plugins: ['prettier-plugin-tailwindcss'],
-}
-```
-
-<small>**Note:** You will need to install `prettier`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier-plugin-tailwindcss`, and `@ianvs/prettier-plugin-sort-imports` as well.</small>
-
-```bash
-yarn add -D eslint-plugin-prettier eslint-config-prettier prettier prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports
-```
-
-## Other Configs
-
-TailwindCSS support:
-
-<small>**Note:** Useful if you are not using Prettier.</small>
-
-```json
-{
-  "extends": [
-    "@ae-studio/eslint-config",
+    "@ae-studio/eslint-config/react",
     "@ae-studio/eslint-config/tailwind"
   ]
 }
 ```
 
-With Typescript:
-
-```json
-{
-  "extends": [
-    "@ae-studio/eslint-config/typescript",
-    "@ae-studio/eslint-config/tailwind"
-  ]
-}
-```
-
-<small>**Note:** You will need to install `eslint-plugin-tailwindcss` as well.</small>
-
-```bash
-yarn add -D eslint-plugin-tailwindcss
-```
-
-## Next.js Support
-
-If you are using Next.js, first extend the Next config and then extend the other configs you want to use:
-
-<small>**Note:** `next/core-web-vitals` extends `next`, so both are not required.</small>
+### Next.js
 
 ```json
 {
   "extends": [
     "next/core-web-vitals",
-    "@ae-studio/eslint-config/typescript",
-    "@ae-studio/eslint-config/prettier"
+    "@ae-studio/eslint-config/react"
   ]
 }
 ```
 
-## IDE Support
+### Next.js + Tailwind
 
-### VSCode
-
-Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-Add the following to `.vscode/settings.json`
 ```json
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+  "extends": [
+    "next/core-web-vitals",
+    "@ae-studio/eslint-config/react",
+    "@ae-studio/eslint-config/tailwind"
+  ]
 }
 ```
 
-### JetBrains (WebStorm, IntelliJ IDEA, etc.)
-Navigate to `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint`
+---
 
-Check `Automatic ESLint configuration` and `Run eslint --fix on save`
-
-## Dependencies
-
-`@ae-studio/eslint-config/typescript` requires the following dependencies:
-
-- `@typescript-eslint/eslint-plugin`
-- `@typescript-eslint/parser`
-
-`@ae-studio/eslint-config/tailwind` requires the following dependencies:
-
-- `eslint-plugin-tailwindcss`
-
-`@ae-studio/eslint-config/prettier` requires the following dependencies:
-
-- `eslint-plugin-prettier`
-- `eslint-config-prettier`
-- `prettier`
-- `prettier-plugin-tailwindcss`
-- `@ianvs/prettier-plugin-sort-imports`
-
-If not automatically installed, install each by running:
-
-**Using NPM:**
-```bash
-npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-tailwindcss eslint-plugin-prettier eslint-config-prettier prettier prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports
-```
-
-**Using Yarn:**
-```bash
-yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-tailwindcss eslint-plugin-prettier eslint-config-prettier prettier prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports
-```
+Built with 🧡 by [AE Studio](https://ae.studio)

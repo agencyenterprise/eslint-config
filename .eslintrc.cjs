@@ -1,4 +1,2 @@
-module.exports = {
-  root: true,
-  extends: ['./configs/prettier'],
-};
+/** @type import("eslint").Linter.Config */
+module.exports = { extends: './configs/node.cjs' };
