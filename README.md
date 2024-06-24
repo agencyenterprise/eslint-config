@@ -20,6 +20,14 @@
 npm i -D eslint@8 @ae-studio/eslint-config
 ```
 
+### Next.js
+
+If you're setting up a **Next.js project**, you also need to install the [eslint-config-next](https://www.npmjs.com/package/eslint-config-next) package.
+
+```sh
+npm i -D eslint@8 @ae-studio/eslint-config eslint-config-next
+```
+
 ## Setup
 
 Inside your `.eslintrc.json` file, add the following configuration based on your project type:
