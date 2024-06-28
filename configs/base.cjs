@@ -6,8 +6,9 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['standard', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'unused-imports', 'simple-import-sort'],
   rules: {
+    'no-useless-constructor': 'off',
     'prettier/prettier': [
       'error',
       {
@@ -20,10 +21,13 @@ module.exports = {
       },
     ],
     'simple-import-sort/imports': 'error',
-    '@typescript-eslint/no-unused-vars': [
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
       'error',
       {
         vars: 'all',
+        varsIgnorePattern: '^_',
         args: 'after-used',
         argsIgnorePattern: '^_',
       },
