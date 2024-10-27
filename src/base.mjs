@@ -24,23 +24,23 @@ export default [
           semi: true,
           endOfLine: 'auto',
         },
+        {
+          fileInfoOptions: {
+            withNodeModules: true,
+          },
+        },
       ],
     },
   },
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
-    },
-    rules: {
-      'simple-import-sort/imports': 'error',
-    },
-  },
-  {
-    plugins: {
       'unused-imports': unusedImports,
     },
     rules: {
-      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'simple-import-sort/imports': 'error',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -52,5 +52,8 @@ export default [
         },
       ],
     },
+  },
+  {
+    ignores: ['dist/', 'node_modules/', 'build/'],
   },
 ];
