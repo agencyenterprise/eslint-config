@@ -13,11 +13,9 @@ export default [
     plugins: {
       'react-hooks': reactHooks,
     },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-    },
+    rules: reactHooks.configs.recommended.rules,
     languageOptions: {
-      globals: { ...globals.browser },
+      globals: globals.browser,
     },
   },
 ];
