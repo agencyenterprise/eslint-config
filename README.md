@@ -5,7 +5,6 @@
 
 ## What's included?
 
-- [Standard config](https://www.npmjs.com/package/eslint-config-standard)
 - [Prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
 - [Typescript plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
 - [React plugin](https://www.npmjs.com/package/eslint-plugin-react)
@@ -17,69 +16,44 @@
 ## Install
 
 ```sh
-npm i -D eslint@8 @ae-studio/eslint-config
+npm install -D eslint @ae-studio/eslint-config
 ```
 
 ### Next.js
 
-If you're setting up a **Next.js project**, you also need to install the [eslint-config-next](https://www.npmjs.com/package/eslint-config-next) package.
+As described in this [GitHub issue](https://github.com/vercel/next.js/issues/64409), Next.js is still being updated to support ESLint 9. It has partial support for the new config format, but it's not fully compatible yet.
+
+For this reason, you need to install version **2.1.0** of this package to be able to use it with Next.js, and continue using ESLint 8.
 
 ```sh
-npm i -D eslint@8 @ae-studio/eslint-config eslint-config-next
+npm install -D eslint@8 @ae-studio/eslint-config@2.1.0
 ```
+
+For setting out the package, please refer to [v2.1.0 documentation](https://github.com/agencyenterprise/eslint-config/tree/2.1.0).
 
 ## Setup
 
-Inside your `.eslintrc.json` file, add the following configuration based on your project type:
+Inside your `eslint.config.mjs` file, add the following configuration based on your project type:
 
 ### Node.js
 
-```json
-{
-  "extends": "@ae-studio/eslint-config/node"
-}
+```js
+export { default } from "@ae-studio/eslint-config/node";
 ```
 
 ### React
 
-```json
-{
-  "extends": "@ae-studio/eslint-config/react"
-}
+```js
+export { default } from "@ae-studio/eslint-config/react";
 ```
 
 ### React + Tailwind
 
-```json
-{
-  "extends": [
-    "@ae-studio/eslint-config/react",
-    "@ae-studio/eslint-config/tailwind"
-  ]
-}
-```
+```js
+import reactConfig from "@ae-studio/eslint-config/react";
+import tailwindConfig from "@ae-studio/eslint-config/tailwind";
 
-### Next.js
-
-```json
-{
-  "extends": [
-    "next/core-web-vitals",
-    "@ae-studio/eslint-config/react"
-  ]
-}
-```
-
-### Next.js + Tailwind
-
-```json
-{
-  "extends": [
-    "next/core-web-vitals",
-    "@ae-studio/eslint-config/react",
-    "@ae-studio/eslint-config/tailwind"
-  ]
-}
+export default [...reactConfig, ...tailwindConfig];
 ```
 
 ---
